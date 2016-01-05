@@ -24,7 +24,7 @@ namespace Geocoding.Core
         {
             get
             {
-                return double.NaN != X && double.NaN != Y;
+                return !double.IsNaN(X) && !double.IsNaN(Y);
             }
         }
 
