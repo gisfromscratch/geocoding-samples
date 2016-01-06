@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.Core", "Geocoding
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.Core.Testing", "Geocoding.Core.Testing\Geocoding.Core.Testing.csproj", "{E0FB519A-7480-418B-9570-C3C33E47D30E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.ConsoleApp", "Geocoding.ConsoleApp\Geocoding.ConsoleApp.csproj", "{D83226BB-AAE1-4701-9A99-4D3B8E75F28D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.IO", "Geocoding.IO\Geocoding.IO.csproj", "{8F0F9B64-2C24-4629-8727-5B604D7EE28C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.IO.Testing", "Geocoding.IO.Testing\Geocoding.IO.Testing.csproj", "{CC5A08A7-6684-47CD-8823-98D74B247A10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{E0FB519A-7480-418B-9570-C3C33E47D30E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0FB519A-7480-418B-9570-C3C33E47D30E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0FB519A-7480-418B-9570-C3C33E47D30E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D83226BB-AAE1-4701-9A99-4D3B8E75F28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D83226BB-AAE1-4701-9A99-4D3B8E75F28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D83226BB-AAE1-4701-9A99-4D3B8E75F28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D83226BB-AAE1-4701-9A99-4D3B8E75F28D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F0F9B64-2C24-4629-8727-5B604D7EE28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F0F9B64-2C24-4629-8727-5B604D7EE28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F0F9B64-2C24-4629-8727-5B604D7EE28C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F0F9B64-2C24-4629-8727-5B604D7EE28C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC5A08A7-6684-47CD-8823-98D74B247A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC5A08A7-6684-47CD-8823-98D74B247A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC5A08A7-6684-47CD-8823-98D74B247A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC5A08A7-6684-47CD-8823-98D74B247A10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
