@@ -47,6 +47,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Geocoding.Core\Geocoding.Core.csproj">
+      <Project>{37ab5705-bb8b-4ff2-b169-ec53a2d90952}</Project>
+      <Name>Geocoding.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geocoding.IO\Geocoding.IO.csproj">
+      <Project>{8f0f9b64-2c24-4629-8727-5b604d7ee28c}</Project>
+      <Name>Geocoding.IO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
