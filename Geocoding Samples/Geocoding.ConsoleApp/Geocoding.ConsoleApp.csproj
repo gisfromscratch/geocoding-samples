@@ -33,6 +33,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,8 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Geocoding.Contracts\Geocoding.Contracts.csproj">
+      <Project>{fd18715f-4c4d-4ef4-92a4-4c09fcc4454e}</Project>
+      <Name>Geocoding.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Geocoding.Core\Geocoding.Core.csproj">
       <Project>{37ab5705-bb8b-4ff2-b169-ec53a2d90952}</Project>
       <Name>Geocoding.Core</Name>
