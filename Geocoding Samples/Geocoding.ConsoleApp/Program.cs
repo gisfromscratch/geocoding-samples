@@ -31,14 +31,15 @@ namespace Geocoding.ConsoleApp
     {
         static void Main(string[] args)
         {
-            if (4 != args.Length)
+            if (6 != args.Length)
             {
-                Console.Error.WriteLine(@"Usage: -f <csv_file> -r <csv_reference_file>");
+                Console.Error.WriteLine(@"Usage: -f <csv_file> -r <csv_reference_file> -i <index_property>");
                 return;
             }
 
-            var csvFileReader = new CsvFileReader();
-            ReferenceDataset referenceDataset = null;
+            FileInfo inputFile = null;
+            FileInfo referenceFile = null;
+            var indexPropertyName = string.Empty;
             for (var index = 0; index < args.Length - 1; index += 2)
             {
                 if (0 == string.Compare(args[index], @"-f"))
@@ -47,8 +48,23 @@ namespace Geocoding.ConsoleApp
                 }
                 else if (0 == string.Compare(args[index], @"-r"))
                 {
-                    referenceDataset = csvFileReader.ReadFile(new FileInfo(args[index + 1]), false, '\t');
+                    referenceFile = new FileInfo(args[index + 1]);
                 }
+                else if (0 == string.Compare(args[index], @"-i"))
+                {
+                    indexPropertyName = args[index + 1];
+                }
+            }
+
+            if (null != referenceFile)
+            {
+                var csvFileReader = new CsvFileReader();
+                if (!string.IsNullOrEmpty(indexPropertyName))
+                {
+                    csvFileReader.RecordBuilder = new SinglePropertyRecordBuilder(indexPropertyName);
+                    csvFileReader.ValueFactory = new SoundexValueFactory(5);
+                }
+                var referenceDataset = csvFileReader.ReadFile(referenceFile, false, '\t');
             }
         }
     }
