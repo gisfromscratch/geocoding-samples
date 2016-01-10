@@ -25,6 +25,8 @@ namespace Geocoding.Core
     /// <summary>
     /// Represents a 2D point geometry.
     /// </summary>
+    /// <remarks>This point implementation must be serializable!</remarks>
+    [Serializable]
     public class PointGeometry : IPointGeometry
     {
         public PointGeometry()

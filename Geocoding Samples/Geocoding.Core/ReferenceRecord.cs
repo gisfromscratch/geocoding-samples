@@ -25,6 +25,8 @@ namespace Geocoding.Core
     /// <summary>
     /// Represents a record having properties and a point geometry.
     /// </summary>
+    /// <remarks>This record implementation must be serializable!</remarks>
+    [Serializable]
     public class ReferenceRecord : IReferenceRecord
     {
         /// <summary>
