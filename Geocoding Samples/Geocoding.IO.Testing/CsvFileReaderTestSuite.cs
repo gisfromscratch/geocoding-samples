@@ -38,8 +38,15 @@ namespace Geocoding.IO.Testing
         public void TestCsvFileReadUsingSoundex()
         {
             var reader = new CsvFileReader();
-            var dataset = reader.ReadFile(new FileInfo(@"data/ReferenceDataset1.csv"), true, ',', new SoundexValueFactory(5));
+            reader.RecordBuilder = new SinglePropertyRecordBuilder(@"Name");
+            reader.ValueFactory = new SoundexValueFactory(5);
+            var dataset = reader.ReadFile(new FileInfo(@"data/ReferenceDataset1.csv"), true, ',');
             Assert.AreEqual(1, dataset.Records.Count, @"Record count is wrong!");
+            foreach (var record in dataset.Records)
+            {
+                Assert.AreEqual(1, record.Properties.Count, @"Property count is wrong!");
+                Assert.AreEqual(@"A4253", record.Properties[@"Name"], @"Soundex code is wrong!");
+            }
         }
     }
 }

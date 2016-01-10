@@ -71,12 +71,12 @@ namespace Geocoding.Core.Testing
             var recordBuilder = new SinglePropertyRecordBuilder(Key);
 
             IReferenceRecord record = new ReferenceRecord();
-            record = recordBuilder.Build(record, Key, string.Empty);
+            record = recordBuilder.BuildRecord(record, Key, string.Empty);
             Assert.AreEqual(1, record.Properties.Count, @"The property count does not match!");
             Assert.AreEqual(string.Empty, record.Properties[Key], @"The property value does not match!");
 
             const string Value = @"Alexanderplatz";
-            record = recordBuilder.Build(record, Key, Value);
+            record = recordBuilder.BuildRecord(record, Key, Value);
             Assert.AreEqual(1, record.Properties.Count, @"The property count does not match!");
             Assert.AreEqual(Value, record.Properties[Key], @"The property value does not match!");
         }

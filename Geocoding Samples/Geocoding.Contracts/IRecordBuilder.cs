@@ -33,6 +33,6 @@ namespace Geocoding.Contracts
         /// <param name="key">The key which should be used for building the record.</param>
         /// <param name="value">The value which should be used for building the record.</param>
         /// <returns>The updated record instance.</returns>
-        IReferenceRecord Build(IReferenceRecord templateRecord, string key, string value);
+        IReferenceRecord BuildRecord(IReferenceRecord templateRecord, string key, string value);
     }
 }

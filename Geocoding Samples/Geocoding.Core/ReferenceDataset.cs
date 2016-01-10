@@ -1,4 +1,5 @@
-﻿/*
+﻿using Geocoding.Contracts;
+/*
  * Copyright 2016 Jan Tschada
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,12 +32,12 @@ namespace Geocoding.Core
         /// </summary>
         public ReferenceDataset()
         {
-            Records = new List<ReferenceRecord>();
+            Records = new List<IReferenceRecord>();
         }
 
         /// <summary>
         /// The records of this dataset.
         /// </summary>
-        public ICollection<ReferenceRecord> Records { get; set; }
+        public ICollection<IReferenceRecord> Records { get; set; }
     }
 }
