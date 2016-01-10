@@ -19,24 +19,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Geocoding.Core
+namespace Geocoding.Contracts
 {
     /// <summary>
-    /// Represents a reference dataset containing records.
+    /// Represents a two dimensional point geometry.
     /// </summary>
-    public class ReferenceDataset
+    public interface IPointGeometry
     {
-        /// <summary>
-        /// Creates a new instance having no records.
-        /// </summary>
-        public ReferenceDataset()
-        {
-            Records = new List<ReferenceRecord>();
-        }
+        double X { get; }
 
-        /// <summary>
-        /// The records of this dataset.
-        /// </summary>
-        public ICollection<ReferenceRecord> Records { get; set; }
+        double Y { get; }
+
+        int Wkid { get; }
     }
 }

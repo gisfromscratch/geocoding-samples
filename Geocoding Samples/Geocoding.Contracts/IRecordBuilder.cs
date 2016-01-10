@@ -19,24 +19,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Geocoding.Core
+namespace Geocoding.Contracts
 {
     /// <summary>
-    /// Represents a reference dataset containing records.
+    /// Offers the building of records.
     /// </summary>
-    public class ReferenceDataset
+    public interface IRecordBuilder
     {
         /// <summary>
-        /// Creates a new instance having no records.
+        /// Builds the record using keys and values for updating the properties.
         /// </summary>
-        public ReferenceDataset()
-        {
-            Records = new List<ReferenceRecord>();
-        }
-
-        /// <summary>
-        /// The records of this dataset.
-        /// </summary>
-        public ICollection<ReferenceRecord> Records { get; set; }
+        /// <param name="templateRecord">The template record whose properties should be updated.</param>
+        /// <param name="key">The key which should be used for building the record.</param>
+        /// <param name="value">The value which should be used for building the record.</param>
+        /// <returns>The updated record instance.</returns>
+        IReferenceRecord Build(IReferenceRecord templateRecord, string key, string value);
     }
 }
