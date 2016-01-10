@@ -31,6 +31,7 @@ namespace Geocoding.Core
 
         /// <summary>
         /// Creates a new factory instance.
+        /// The created soundex code string will have less or equal characters than the specified size.
         /// </summary>
         /// <param name="size">The maximum size of the soundex code.</param>
         public SoundexValueFactory(ushort size)

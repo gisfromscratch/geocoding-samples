@@ -16,6 +16,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using Geocoding.Contracts;
 
 namespace Geocoding.Core.Testing
 {
@@ -61,6 +62,23 @@ namespace Geocoding.Core.Testing
         public void TestCreateHugeDataset()
         {
             var referenceDataset = CreateRandomDataset((ulong) 1e8);
+        }
+
+        [TestMethod]
+        public void TestCreateSinglePropertyBuilder()
+        {
+            const string Key = @"Name";
+            var recordBuilder = new SinglePropertyRecordBuilder(Key);
+
+            IReferenceRecord record = new ReferenceRecord();
+            record = recordBuilder.Build(record, Key, string.Empty);
+            Assert.AreEqual(1, record.Properties.Count, @"The property count does not match!");
+            Assert.AreEqual(string.Empty, record.Properties[Key], @"The property value does not match!");
+
+            const string Value = @"Alexanderplatz";
+            record = recordBuilder.Build(record, Key, Value);
+            Assert.AreEqual(1, record.Properties.Count, @"The property count does not match!");
+            Assert.AreEqual(Value, record.Properties[Key], @"The property value does not match!");
         }
     }
 }

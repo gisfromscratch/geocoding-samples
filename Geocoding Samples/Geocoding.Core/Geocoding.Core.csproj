@@ -43,6 +43,7 @@
     <Compile Include="ReferenceDataset.cs" />
     <Compile Include="ReferenceRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SinglePropertyRecordBuilder.cs" />
     <Compile Include="SoundexValueFactory.cs" />
   </ItemGroup>
   <ItemGroup>
