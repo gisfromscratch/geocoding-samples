@@ -1,4 +1,5 @@
-﻿using Geocoding.Core;
+﻿using Geocoding.Contracts;
+using Geocoding.Core;
 using Geocoding.IO;
 using System;
 using System.Collections.Generic;
@@ -44,7 +45,7 @@ namespace Geocoding.ConsoleApp
             {
                 if (0 == string.Compare(args[index], @"-f"))
                 {
-                    
+                    inputFile = new FileInfo(args[index + 1]);
                 }
                 else if (0 == string.Compare(args[index], @"-r"))
                 {
@@ -56,15 +57,28 @@ namespace Geocoding.ConsoleApp
                 }
             }
 
-            if (null != referenceFile)
+            if (null != inputFile && null != referenceFile)
             {
+                // Read the CSV file and define the value creation
                 var csvFileReader = new CsvFileReader();
                 if (!string.IsNullOrEmpty(indexPropertyName))
                 {
                     csvFileReader.RecordBuilder = new SinglePropertyRecordBuilder(indexPropertyName);
                     csvFileReader.ValueFactory = new SoundexValueFactory(5);
                 }
-                var referenceDataset = csvFileReader.ReadFile(referenceFile, false, '\t');
+
+                Console.WriteLine(@"Reading {0}", inputFile.ToString());
+                var inputDataset = csvFileReader.ReadFile(inputFile, false, '\t');
+                
+                // Write the records to the reference file
+                Console.WriteLine(@"Writing to {0}", referenceFile.ToString());
+                var indexFileWriter = new IndexFileWriter();
+                indexFileWriter.WriteFile(referenceFile, inputDataset.Records);
+
+                // Read the index file again
+                //var indexFileReader = new IndexFileReader();
+                //var writtenRecords = indexFileReader.ReadFile(referenceFile);
+                //Console.WriteLine(@"{0} records deserialized.", Enumerable.ToList<IReferenceRecord>(writtenRecords).Count);
             }
         }
     }
