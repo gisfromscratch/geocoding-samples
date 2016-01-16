@@ -59,6 +59,15 @@ namespace Geocoding.ConsoleApp
 
             if (null != inputFile && null != referenceFile)
             {
+                var reader = new CsvFileReader();
+                var records = reader.StreamFile(inputFile, false, '\t');
+                var writer = new IndexDirectoryWriter();
+                var valueFactory = new SoundexValueFactory(5);
+                var mapper = new SinglePropertyRecordMapper(indexPropertyName, valueFactory);
+                writer.WriteDirectory(referenceFile.Directory, mapper, records);
+
+                /* #region OLD
+
                 // Read the CSV file and define the value creation
                 var csvFileReader = new CsvFileReader();
                 if (!string.IsNullOrEmpty(indexPropertyName))
@@ -79,6 +88,8 @@ namespace Geocoding.ConsoleApp
                 //var indexFileReader = new IndexFileReader();
                 //var writtenRecords = indexFileReader.ReadFile(referenceFile);
                 //Console.WriteLine(@"{0} records deserialized.", Enumerable.ToList<IReferenceRecord>(writtenRecords).Count);
+
+                #endregion */
             }
         }
     }

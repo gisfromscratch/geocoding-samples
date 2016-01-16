@@ -51,7 +51,14 @@ namespace Geocoding.Core
             {
                 if (builder.Length < 1)
                 {
-                    builder.Append(valueChar);
+                    if ('A' <= valueChar && valueChar <= 'Z')
+                    {
+                        builder.Append(valueChar);
+                    }
+                    else
+                    {
+                        builder.Append('0');
+                    }
                 }
                 else
                 {

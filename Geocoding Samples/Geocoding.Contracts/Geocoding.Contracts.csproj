@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="IPointGeometry.cs" />
     <Compile Include="IRecordBuilder.cs" />
+    <Compile Include="IRecordMapper.cs" />
     <Compile Include="IReferenceRecord.cs" />
     <Compile Include="IValueFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
