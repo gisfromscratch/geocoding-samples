@@ -1,11 +1,27 @@
+var fileSystem = require("fs");
 var geode = require("geode");
+var readLine = require("readline");
 
 console.log("Geosearch . . .");
+console.log(process.cwd());
 
-var geo = new geode('demo', {language: 'en', country : 'US'});
+var fileInputPath = "Geonamesclient/placenames.txt";
 
-geo.search({name :'Riverside'}, function(err, results) {
-    if (null === err) {
+readLine.createInterface({
+    input: fileSystem.createReadStream(fileInputPath),
+    terminal: false
+}).on("line", function (placename) {
+    console.log(placename);
+    console.log();
+    
+    var geo = new geode("demo", {language: "en"});
+
+    geo.search({name : placename}, function(err, results) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        
         var wgs84 = {
             wkid : 4326  
         };
@@ -20,7 +36,5 @@ geo.search({name :'Riverside'}, function(err, results) {
             };
             console.log(JSON.stringify(jsonGeometry));
         }
-    } else {
-        console.error(err);
-    }
+    });
 });
