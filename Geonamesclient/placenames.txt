@@ -1,1 +1,1 @@
-9-Feb-68,Buenos Aires,Argentina,Unknown,Firearms,0,0,ARGENTINA.  The second floor of the U.S. embassy residence was struck by fifteen 9-mm machine-gun slugs fired from a passing automobile during the early morning hours.
+9-Feb-68,"Buenos, Aires",Argentina,Unknown,Firearms,0,0,ARGENTINA.  The second floor of the U.S. embassy residence was struck by fifteen 9-mm machine-gun slugs fired from a passing automobile during the early morning hours.

@@ -18,13 +18,15 @@ var readInterface = readLine.createInterface({
     terminal: false
 });
 readInterface.on("line", function (line) {
-    var splittedLine = line.split(",");
+    var pattern = /,(?=(?:[^"]*"[^"]*")*[^"]*$)/gm;
+    var splittedLine = line.split(pattern);
     if (splittedLine.length < 8) {
         return;
     }
     
-    var placename = splittedLine[1].trim(" ");
-    var countryName = splittedLine[2].trim(" ");
+    var trimPattern = /^\s+|"+|\s+$/gm;
+    var placename = splittedLine[1].replace(trimPattern, "");
+    var countryName = splittedLine[2].replace(trimPattern, "");
     var language = "en";
     var countryCode = countryCodes.getAlpha2Code(countryName, language);
     
