@@ -8,7 +8,8 @@ console.log("Geosearch . . .");
 console.log(process.cwd());
 
 var geonamesUser = "demo";
-var featureServiceUrl = "http://services6.arcgis.com/Non4T7MSCBOZeZLO/ArcGIS/rest/services/RandIncidents/FeatureServer/0";
+var portalToken = "???";
+var featureServiceUrl = "http://services6.arcgis.com/???/ArcGIS/rest/services/RandIncidents/FeatureServer/0";
 var fileInputPath = "placenames.txt";
 
 var readInterface = readLine.createInterface({
@@ -79,9 +80,12 @@ readInterface.on("line", function (line) {
                     "Accept" : "application/json",
                     "Content-Type" : "application/json"
                 })
-                .field("f", "json")
-                .field("features", [ nextFeature ])
-                .field("rollbackOnFailure", true)
+                .send({
+                    "token" : portalToken,
+                    "f" : "json",
+                    "features" : [nextFeature],
+                    "rollbackOnFailure" : true
+                })
                 .end(function (response) {
                     console.log(response.body);
                 });
