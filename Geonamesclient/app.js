@@ -2,16 +2,14 @@ var countryCodes = require("i18n-iso-countries");
 var fileSystem = require("fs");
 var geode = require("geode");
 var readLine = require("readline");
+var uniRest = require("unirest");
 
 console.log("Geosearch . . .");
 console.log(process.cwd());
 
+var geonamesUser = "demo";
+var featureServiceUrl = "http://services6.arcgis.com/Non4T7MSCBOZeZLO/ArcGIS/rest/services/RandIncidents/FeatureServer/0";
 var fileInputPath = "placenames.txt";
-
-var features = [];
-var fileOutputPath = "features.json";
-var writeStream = fileSystem.createWriteStream(fileOutputPath);
-var hasWrittenFeature = false;
 
 var readInterface = readLine.createInterface({
     input: fileSystem.createReadStream(fileInputPath),
@@ -30,7 +28,7 @@ readInterface.on("line", function (line) {
     var language = "en";
     var countryCode = countryCodes.getAlpha2Code(countryName, language);
     
-    var geo = new geode("gisfromscratch", { 
+    var geo = new geode(geonamesUser, { 
         language : language
     });
     
@@ -74,18 +72,19 @@ readInterface.on("line", function (line) {
                 attributes : attributes    
             };
             
-            var featureString = JSON.stringify(nextFeature);
-            if (hasWrittenFeature) {
-                featureString = "," + featureString;
-            }
-            var writeFailed = !writeStream.write(featureString);
-            if (writeFailed) {
-                writeStream.once("drain", function() {
-                    writeStream.write(featureString);
+            //var featureString = JSON.stringify(nextFeature);
+            var postUrl = featureServiceUrl + "/addFeatures";
+            uniRest.post(postUrl)
+                .headers({
+                    "Accept" : "application/json",
+                    "Content-Type" : "application/json"
+                })
+                .field("f", "json")
+                .field("features", [ nextFeature ])
+                .field("rollbackOnFailure", true)
+                .end(function (response) {
+                    console.log(response.body);
                 });
-            } else {
-                hasWrittenFeature = true;
-            }
         }
     });
 });
