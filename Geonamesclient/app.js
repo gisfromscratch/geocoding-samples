@@ -9,7 +9,7 @@ console.log(process.cwd());
 
 var geonamesUser = "demo";
 var portalToken = "???";
-var featureServiceUrl = "http://services6.arcgis.com/???/ArcGIS/rest/services/RandIncidents/FeatureServer/0";
+var featureServiceUrl = "???";
 var fileInputPath = "placenames.txt";
 
 var readInterface = readLine.createInterface({
@@ -73,18 +73,19 @@ readInterface.on("line", function (line) {
                 attributes : attributes    
             };
             
-            //var featureString = JSON.stringify(nextFeature);
+            var addFeaturesOption = [ nextFeature ];
+            var featureString = JSON.stringify(addFeaturesOption);
             var postUrl = featureServiceUrl + "/addFeatures";
             uniRest.post(postUrl)
                 .headers({
                     "Accept" : "application/json",
                     "Content-Type" : "application/json"
                 })
-                .send({
+                .query({
                     "token" : portalToken,
                     "f" : "json",
-                    "features" : [nextFeature],
-                    "rollbackOnFailure" : true
+                    "rollbackOnFailure" : true,
+                    "features" : featureString
                 })
                 .end(function (response) {
                     console.log(response.body);
