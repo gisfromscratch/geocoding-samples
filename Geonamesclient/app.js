@@ -2,15 +2,53 @@ var countryCodes = require("i18n-iso-countries");
 var fileSystem = require("fs");
 var geode = require("geode");
 var readLine = require("readline");
+var stdio = require("stdio");
 var uniRest = require("unirest");
 
 console.log("Geosearch . . .");
 console.log(process.cwd());
 
-var geonamesUser = "demo";
-var portalToken = "???";
-var featureServiceUrl = "???";
-var fileInputPath = "placenames.txt";
+var options = stdio.getopt({
+    "config" : {
+        key : "c",
+        args : 1,
+        description : "The app configuration containing all options."    
+    },
+    
+    "geonamesUser" : {
+        key : "u",
+        args : 1,
+        description : "The geonames user name."    
+    },
+    
+    "portalToken" : { 
+        key : "t", 
+        args : 1,
+        description : "The portal token."
+     },
+     
+     "featureServiceUrl" : {
+         key : "s",
+         args : 1,
+         description : "The feature service url."
+     },
+     
+     "fileInputPath" : {
+         key : "f",
+         args : 1,
+         description : "The path to the input file."
+     }
+});
+
+// Force app configuration first
+if (options.config) {
+    options = JSON.parse(fileSystem.readFileSync(options.config, "utf-8"));
+}
+
+var geonamesUser = options.geonamesUser;
+var portalToken = options.portalToken;
+var featureServiceUrl = options.featureServiceUrl;
+var fileInputPath = options.fileInputPath;
 
 var readInterface = readLine.createInterface({
     input: fileSystem.createReadStream(fileInputPath),
@@ -42,7 +80,7 @@ readInterface.on("line", function (line) {
     geo.search(searchOptions, function(err, results) {
         if (err) {
             console.error(err);
-            return;
+            throw err;
         }
         
         var wgs84 = {
