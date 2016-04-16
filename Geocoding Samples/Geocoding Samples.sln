@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.Core", "Geocoding.Core\Geocoding.Core.csproj", "{37AB5705-BB8B-4FF2-B169-EC53A2D90952}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.IO.Testing", "Geocoding.IO.Testing\Geocoding.IO.Testing.csproj", "{CC5A08A7-6684-47CD-8823-98D74B247A10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.Contracts", "Geocoding.Contracts\Geocoding.Contracts.csproj", "{FD18715F-4C4D-4EF4-92A4-4C09FCC4454E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.Services", "Geocoding.Services\Geocoding.Services.csproj", "{19024FD2-454F-435A-8C9A-2C26D8FA66A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{FD18715F-4C4D-4EF4-92A4-4C09FCC4454E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD18715F-4C4D-4EF4-92A4-4C09FCC4454E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD18715F-4C4D-4EF4-92A4-4C09FCC4454E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19024FD2-454F-435A-8C9A-2C26D8FA66A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19024FD2-454F-435A-8C9A-2C26D8FA66A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19024FD2-454F-435A-8C9A-2C26D8FA66A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19024FD2-454F-435A-8C9A-2C26D8FA66A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

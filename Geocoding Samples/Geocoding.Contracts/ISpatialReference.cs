@@ -16,14 +16,13 @@
 namespace Geocoding.Contracts
 {
     /// <summary>
-    /// Represents a two dimensional point geometry.
+    /// Represents a spatial reference.
     /// </summary>
-    public interface IPointGeometry
+    public interface ISpatialReference
     {
-        double X { get; }
-
-        double Y { get; }
-
-        int Wkid { get; }
+        /// <summary>
+        /// The well known ID of this spatial reference.
+        /// </summary>
+        long Wkid { get; set; }
     }
 }

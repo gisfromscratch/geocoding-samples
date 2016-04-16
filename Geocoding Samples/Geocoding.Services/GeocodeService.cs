@@ -13,17 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Geocoding.Contracts
+
+namespace Geocoding.Services
 {
     /// <summary>
-    /// Represents a two dimensional point geometry.
+    /// Represents the geocode service.
     /// </summary>
-    public interface IPointGeometry
+    public class GeocodeService
     {
-        double X { get; }
 
-        double Y { get; }
-
-        int Wkid { get; }
     }
 }

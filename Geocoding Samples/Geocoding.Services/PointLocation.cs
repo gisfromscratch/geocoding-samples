@@ -13,39 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-using Geocoding.Contracts;
-using System;
 
-namespace Geocoding.Core
+using Geocoding.Contracts;
+using System.Runtime.Serialization;
+
+namespace Geocoding.Services
 {
     /// <summary>
-    /// Represents a 2D point geometry.
+    /// Represents a point geometry as a location without having a spatial reference.
     /// </summary>
-    /// <remarks>This point implementation must be serializable!</remarks>
-    [Serializable]
-    public class PointGeometry : IPointGeometry
+    [DataContract]
+    public class PointLocation : IPoint
     {
-        public PointGeometry()
-        {
-            X = double.NaN;
-            Y = double.NaN;
-        }
-
         /// <summary>
-        /// <c>true</c> when this geometry has valid coordinates.
+        /// The x coodinate of this location.
         /// </summary>
-        public virtual bool IsValid
-        {
-            get
-            {
-                return !double.IsNaN(X) && !double.IsNaN(Y);
-            }
-        }
-
+        [DataMember]
         public double X { get; set; }
 
+        /// <summary>
+        /// The y coordinate of this location.
+        /// </summary>
+        [DataMember]
         public double Y { get; set; }
-
-        public int Wkid { get; set; }
     }
 }
