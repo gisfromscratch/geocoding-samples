@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57475/GeocodeService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:57475/GeocodeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Geocoding.Services" />
+  <xs:element name="FindAddressCandidates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="addressFieldsInput" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="addressFieldsOutput" nillable="true" type="q2:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAddressCandidatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Geocoding.Services" minOccurs="0" name="FindAddressCandidatesResult" nillable="true" type="q3:ArrayOfAddressCandidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

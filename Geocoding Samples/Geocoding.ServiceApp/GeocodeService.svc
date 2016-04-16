@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Geocoding.ServiceApp.GeocodeService" CodeBehind="GeocodeService.svc.cs" %>

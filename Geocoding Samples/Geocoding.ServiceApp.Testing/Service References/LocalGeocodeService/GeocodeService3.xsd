@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Geocoding.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Geocoding.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57475/GeocodeService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfAddressCandidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressCandidate" nillable="true" type="tns:AddressCandidate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAddressCandidate" nillable="true" type="tns:ArrayOfAddressCandidate" />
+  <xs:complexType name="AddressCandidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Attributes" nillable="true" type="q1:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="tns:PointLocation" />
+      <xs:element minOccurs="0" name="Score" type="xs:unsignedShort" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressCandidate" nillable="true" type="tns:AddressCandidate" />
+  <xs:complexType name="PointLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="X" type="xs:double" />
+      <xs:element minOccurs="0" name="Y" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PointLocation" nillable="true" type="tns:PointLocation" />
+</xs:schema>

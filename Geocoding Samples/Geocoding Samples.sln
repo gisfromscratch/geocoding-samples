@@ -17,6 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.Contracts", "Geoc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.Services", "Geocoding.Services\Geocoding.Services.csproj", "{19024FD2-454F-435A-8C9A-2C26D8FA66A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.ServiceApp", "Geocoding.ServiceApp\Geocoding.ServiceApp.csproj", "{06C3E072-B96B-4FFB-9357-910CFC96DC9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geocoding.ServiceApp.Testing", "Geocoding.ServiceApp.Testing\Geocoding.ServiceApp.Testing.csproj", "{48C69963-8524-4F61-B78D-63878FC54296}"
+	ProjectSection(ProjectDependencies) = postProject
+		{06C3E072-B96B-4FFB-9357-910CFC96DC9F} = {06C3E072-B96B-4FFB-9357-910CFC96DC9F}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +58,14 @@ Global
 		{19024FD2-454F-435A-8C9A-2C26D8FA66A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19024FD2-454F-435A-8C9A-2C26D8FA66A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19024FD2-454F-435A-8C9A-2C26D8FA66A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C3E072-B96B-4FFB-9357-910CFC96DC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C3E072-B96B-4FFB-9357-910CFC96DC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C3E072-B96B-4FFB-9357-910CFC96DC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C3E072-B96B-4FFB-9357-910CFC96DC9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48C69963-8524-4F61-B78D-63878FC54296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48C69963-8524-4F61-B78D-63878FC54296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48C69963-8524-4F61-B78D-63878FC54296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48C69963-8524-4F61-B78D-63878FC54296}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

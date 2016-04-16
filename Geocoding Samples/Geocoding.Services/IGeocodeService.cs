@@ -30,7 +30,11 @@ namespace Geocoding.Services
         /// <param name="addressFieldsInput">The input values for finding the candidates.</param>
         /// <param name="addressFieldsOutput">A list of names which should be used for filtering the returned attributes.</param>
         /// <returns>A list of address candidates.</returns>
+        /// <remarks>
+        /// Uses the <see cref="List{T}"/> and <see cref="Dictionary{TKey, TValue}"/> classes instead of the <see cref="IList{T}"/> and <see cref="IDictionary{TKey, TValue}"/> interfaces.
+        /// Otherwise the default WCF serialization fails.
+        /// </remarks>
         [OperationContract]
-        IList<AddressCandidate> FindAddressCandidates(IDictionary<string, string> addressFieldsInput, ISet<string> addressFieldsOutput);
+        List<AddressCandidate> FindAddressCandidates(Dictionary<string, string> addressFieldsInput, List<string> addressFieldsOutput);
     }
 }
