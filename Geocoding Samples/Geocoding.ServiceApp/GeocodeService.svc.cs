@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
+using Geocoding.ServiceApp.Properties;
 using Geocoding.Services;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +30,49 @@ namespace Geocoding.ServiceApp
     {
         public List<AddressCandidate> FindAddressCandidates(Dictionary<string, string> addressFieldsInput, List<string> addressFieldsOutput)
         {
+            try
+            {
+                ApplyOnConnection(connection =>
+                {
+                    try
+                    {
+                        using (var command = new NpgsqlCommand())
+                        {
+                            command.Connection = connection;
+                            command.CommandText = @"SELECT name FROM geonames_utf8 LIMIT 10";
+                            using (var reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    var value = reader[@"name"];
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+            }
             return Enumerable.Empty<AddressCandidate>().ToList();
+        }
+
+        private void ApplyOnConnection(Action<NpgsqlConnection> connectionAction)
+        {
+            var connectionString = Environment.GetEnvironmentVariable(@"PostgresConnectionString");
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                connectionString = Settings.Default.PostgresConnectionString;
+            }
+            using (var connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+                connectionAction(connection);
+                connection.Close();
+            }
         }
     }
 }

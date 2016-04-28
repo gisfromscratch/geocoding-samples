@@ -17,6 +17,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Geocoding.ServiceApp.Testing.LocalGeocodeService;
 using System.Collections.Generic;
+using System;
 
 namespace Geocoding.ServiceApp.Testing
 {
