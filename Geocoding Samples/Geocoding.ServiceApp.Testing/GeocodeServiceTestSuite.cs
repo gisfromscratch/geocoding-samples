@@ -32,7 +32,7 @@ namespace Geocoding.ServiceApp.Testing
         {
             var serviceClient = new GeocodeServiceClient();
             var inputFields = new Dictionary<string, string>();
-            inputFields.Add(@"SingleLine", @"");
+            inputFields.Add(@"SingleLine", @"Cologne");
             var outputNames = new List<string>();
             outputNames.Add(@"Name");
             var candidates = serviceClient.FindAddressCandidates(inputFields, outputNames);

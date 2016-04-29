@@ -31,5 +31,15 @@ namespace Geocoding.ServiceApp.Properties {
                 return ((string)(this["PostgresConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SELECT name, latitude, longitude FROM geonames_utf8 WHERE soundex(name) = soundex" +
+            "(\'{0}\') LIMIT 100")]
+        public string FindAddressCandidatesQuery {
+            get {
+                return ((string)(this["FindAddressCandidatesQuery"]));
+            }
+        }
     }
 }

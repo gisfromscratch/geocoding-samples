@@ -19,6 +19,7 @@ using Geocoding.Services;
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Geocoding.ServiceApp
@@ -30,6 +31,7 @@ namespace Geocoding.ServiceApp
     {
         public List<AddressCandidate> FindAddressCandidates(Dictionary<string, string> addressFieldsInput, List<string> addressFieldsOutput)
         {
+            var candidates = new List<AddressCandidate>();
             try
             {
                 ApplyOnConnection(connection =>
@@ -39,12 +41,40 @@ namespace Geocoding.ServiceApp
                         using (var command = new NpgsqlCommand())
                         {
                             command.Connection = connection;
-                            command.CommandText = @"SELECT name FROM geonames_utf8 LIMIT 10";
+                            command.CommandText = string.Format(Settings.Default.FindAddressCandidatesQuery, addressFieldsInput[@"SingleLine"]);
                             using (var reader = command.ExecuteReader())
                             {
                                 while (reader.Read())
                                 {
-                                    var value = reader[@"name"];
+                                    var candidate = new AddressCandidate();
+                                    var name = reader[@"name"];
+                                    if (null != name && DBNull.Value != name)
+                                    {
+                                        candidate.Address = Convert.ToString(name);
+                                    }
+
+                                    double y = double.NaN;
+                                    var latitude = reader[@"latitude"];
+                                    if (null != latitude && DBNull.Value != latitude)
+                                    {
+                                        if (!double.TryParse(Convert.ToString(latitude, CultureInfo.InvariantCulture), NumberStyles.Any, CultureInfo.InvariantCulture, out y))
+                                        {
+                                            y = double.NaN;
+                                        }
+                                    }
+
+                                    double x = double.NaN;
+                                    var longitude = reader[@"longitude"];
+                                    if (null != longitude && DBNull.Value != longitude)
+                                    {
+                                        if (!double.TryParse(Convert.ToString(longitude, CultureInfo.InvariantCulture), NumberStyles.Any, CultureInfo.InvariantCulture, out x))
+                                        {
+                                            x = double.NaN;
+                                        }
+                                    }
+
+                                    candidate.Location = new PointLocation { X = x, Y = y };
+                                    candidates.Add(candidate);
                                 }
                             }
                         }
@@ -57,7 +87,7 @@ namespace Geocoding.ServiceApp
             catch (Exception ex)
             {
             }
-            return Enumerable.Empty<AddressCandidate>().ToList();
+            return candidates;
         }
 
         private void ApplyOnConnection(Action<NpgsqlConnection> connectionAction)

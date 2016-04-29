@@ -5,5 +5,8 @@
     <Setting Name="PostgresConnectionString" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Host=myserver;Username=mylogin;Password=mypass;Database=mydatabase</Value>
     </Setting>
+    <Setting Name="FindAddressCandidatesQuery" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SELECT name, latitude, longitude FROM geonames_utf8 WHERE soundex(name) = soundex('{0}') LIMIT 100</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
