@@ -66,17 +66,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Service References\LocalGeocodeService\GeocodeService.wsdl" />
-    <None Include="Service References\LocalGeocodeService\GeocodeService.xsd">
+    <None Include="Service References\LocalGeocodeService\GeocodeService1.wsdl" />
+    <None Include="Service References\LocalGeocodeService\GeocodeService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\LocalGeocodeService\GeocodeService1.xsd">
+    <None Include="Service References\LocalGeocodeService\GeocodeService41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\LocalGeocodeService\GeocodeService2.xsd">
+    <None Include="Service References\LocalGeocodeService\GeocodeService42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\LocalGeocodeService\GeocodeService3.xsd">
+    <None Include="Service References\LocalGeocodeService\GeocodeService43.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\LocalGeocodeService\Geocoding.ServiceApp.Testing.LocalGeocodeService.AddressCandidate.datasource">
@@ -85,9 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\LocalGeocodeService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\LocalGeocodeService\GeocodeService.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\LocalGeocodeService\configuration91.svcinfo" />
@@ -100,6 +97,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LocalGeocodeService\GeocodeService1.disco" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
