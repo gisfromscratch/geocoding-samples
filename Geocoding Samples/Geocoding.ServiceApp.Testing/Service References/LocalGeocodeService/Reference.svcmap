@@ -21,15 +21,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:57475/GeocodeService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/GeocodeService/GeocodeService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GeocodeService.xsd" MetadataType="Schema" ID="a06498d5-a7b6-4c6d-a2df-be695b82fc6b" SourceId="1" SourceUrl="http://localhost:57475/GeocodeService.svc?xsd=xsd0" />
-    <MetadataFile FileName="GeocodeService1.xsd" MetadataType="Schema" ID="8bfafe86-3e90-46ed-877b-b9fd3f445664" SourceId="1" SourceUrl="http://localhost:57475/GeocodeService.svc?xsd=xsd1" />
-    <MetadataFile FileName="GeocodeService2.xsd" MetadataType="Schema" ID="acc1cc58-8f5d-4c8d-afb4-25a862edde9c" SourceId="1" SourceUrl="http://localhost:57475/GeocodeService.svc?xsd=xsd2" />
-    <MetadataFile FileName="GeocodeService3.xsd" MetadataType="Schema" ID="eec13b0a-3755-40f5-8083-4102e2e83081" SourceId="1" SourceUrl="http://localhost:57475/GeocodeService.svc?xsd=xsd3" />
-    <MetadataFile FileName="GeocodeService.disco" MetadataType="Disco" ID="b1f1a3d0-5950-49f3-a555-920a76606bd0" SourceId="1" SourceUrl="http://localhost:57475/GeocodeService.svc?disco" />
-    <MetadataFile FileName="GeocodeService.wsdl" MetadataType="Wsdl" ID="ee20c16d-0ccd-4c63-8fae-a06bd6e6452a" SourceId="1" SourceUrl="http://localhost:57475/GeocodeService.svc?wsdl" />
+    <MetadataFile FileName="GeocodeService1.disco" MetadataType="Disco" ID="fff1c39d-26d2-436c-b89f-bb3325b56903" SourceId="1" SourceUrl="http://localhost/GeocodeService/GeocodeService.svc?disco" />
+    <MetadataFile FileName="GeocodeService4.xsd" MetadataType="Schema" ID="83fb540d-1e25-4987-95e9-c34c517e572d" SourceId="1" SourceUrl="http://localhost/GeocodeService/GeocodeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GeocodeService41.xsd" MetadataType="Schema" ID="d6afa149-b201-4eac-9623-1c74ca016022" SourceId="1" SourceUrl="http://localhost/GeocodeService/GeocodeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="GeocodeService1.wsdl" MetadataType="Wsdl" ID="96d30595-6dd8-4d59-bb09-48d8db8e0b96" SourceId="1" SourceUrl="http://localhost/GeocodeService/GeocodeService.svc?wsdl" />
+    <MetadataFile FileName="GeocodeService42.xsd" MetadataType="Schema" ID="77cdbd94-810e-4083-be1e-c5344d584dc1" SourceId="1" SourceUrl="http://localhost/GeocodeService/GeocodeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="GeocodeService43.xsd" MetadataType="Schema" ID="bf8ee861-8126-4e97-8b57-242b1dcfcde9" SourceId="1" SourceUrl="http://localhost/GeocodeService/GeocodeService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

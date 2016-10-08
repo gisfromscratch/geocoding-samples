@@ -73,6 +73,12 @@ namespace Geocoding.ServiceApp
                                         }
                                     }
 
+                                    var countryCode = reader[@"country_code"];
+                                    if (null != countryCode && DBNull.Value != countryCode)
+                                    {
+                                        candidate.Attributes.Add(@"country_code", countryCode);
+                                    }
+
                                     candidate.Location = new PointLocation { X = x, Y = y };
                                     candidates.Add(candidate);
                                 }
